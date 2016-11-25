@@ -1,0 +1,116 @@
+<style>row.content {height: 550px}
+
+    .sidenav {
+        background-color: #f1f1f1;
+        height: 100%;
+    }
+
+    @media screen and (max-width: 767px) {
+        .row.content {height: auto;} 
+    }</style>
+
+
+<div class="container-fluid">
+    <div class="row content">
+        <div class="col-sm-3 sidenav hidden-xs">
+            <h1>{{ lastupdate | date : "HH:mm:ss"}} | Majordodo</h1>
+            <ul class="nav nav-pills nav-stacked">
+                <li> <div class="form-inline">
+                        <label for="email">URL</label>
+                        <input ng-model="brokerUrl" value='' class="form-control"  >
+                        <button ng-click="refreshPage()" class="btn btn-success pull-right" >Refresh</button>
+                    </div>   </li>
+                <li class="active"><a href="" ng-click="go('/home')">Home</a></li>
+                <li><a href="" ng-click="go('/search')">Search</a></li>
+                <li><a href="" ng-click="go('/slots')">Slots</a></li>
+                <li><a href="" ng-click="go('/resources')">Resources</a></li>
+                <li><a href="" ng-click="go('/task')">Task</a></li>
+            </ul>
+        </div>
+        <br>
+   
+<div class="col-sm-9">
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="well well-lg">
+                <h2>Mode</h4>
+                <h3 class="text-success text-center">{{status.clusterMode}}</h3> 
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="well well-sm">
+                <h4>Total Tasks</h4>
+                <p>{{status.tasks}}</p> 
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="well well-sm">
+                <h4>Log position</h4>
+                <p>{{status.currentLedgerId}} / {{status.currentSequenceNumber}}</p> 
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="well">
+                <h4>Waiting tasks</h4>
+                <p>{{status.waitingTasks}}</p> 
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="well">
+                <h4>Running tasks</h4>
+                <p>{{status.runningTasks}}</p> 
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="well">
+                <h4>Error Tasks</h4>
+                <p>{{status.errorTasks}}</p> 
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="well">
+                <h4>Finished Tasks</h4>
+                <p>{{status.finishedTasks}}</p> 
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="well">
+                <p>Text</p> 
+                <p>Text</p> 
+                <p>Text</p> 
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="well">
+                <p>Text</p> 
+                <p>Text</p> 
+                <p>Text</p> 
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="well">
+                <p>Text</p> 
+                <p>Text</p> 
+                <p>Text</p> 
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-8">
+            <div class="well">
+                <p>Text</p> 
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="well">
+                <p>Text</p> 
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>

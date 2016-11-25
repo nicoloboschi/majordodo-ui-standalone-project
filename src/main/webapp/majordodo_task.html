@@ -1,0 +1,43 @@
+
+<div class="issuescontainer" >
+    <div style='clear:both' />
+    <h1>{{ lastupdate | date : "HH:mm:ss"}} | Majordodo</h1>
+    <div style='clear:both' />
+    <div class="spetoolbar">
+        <button ng-click="go('/home')" >Home</<button>
+        <button ng-click="go('/search')" >Search</<button>                       
+        <button ng-click="go('/slots')" >Slots</<button>                       
+        <button ng-click="go('/resources')" >Resources</<button>
+        <button ng-click="go('/task')" >Search Task</<button>
+        <button ng-click="go('/worker')" >Search Worker</<button>                               
+    </div>
+    <div class="controls" >        
+        URL <input ng-model="brokerUrl" value='' ">          
+        ID <input ng-model="taskId" value='' ng-change="refreshPage()"> 
+        <button ng-click="refreshPage()" >Refresh</button>
+    </div>    
+    <div class="deliverydetailcontainer"  >
+        <h3>View task details</h3>
+        <table cellpadding="0" cellspacing="0" border="0" class="deliverydetail" ng-show="task.status" >
+            <thead>
+                <tr><td>TaskID</td><td>{{task.taskId}}</td>
+                <tr><td>Status<td>{{task.status}}</td>                
+                <tr><td>Tasktype<td>{{task.tasktype}}</td>                
+                <tr><td>UserID<td>{{task.userId}}</td>                
+                <tr><td>Slot<td>{{task.slot}}</td>                
+                <tr><td>Attempts<td>{{task.attempts}}</td>                
+                <tr><td>Max attempts<td>{{task.maxattempts}}</td>                
+                <tr><td>Created timestamp<td>{{task.createdTimestamp  | date:"dd/MM/yyyy 'at' h:mma"}}</td>                                
+                <tr ng-show="task.deadline !='' "><td>Deadline<td>{{task.deadline| date:"dd/MM/yyyy 'at' h:mma"}}</td>                
+                <tr><td>WorkerID<td>{{task.workerId}}</td>                
+                <tr><td>Resources<td>{{task.resources}}</td>
+                <tr><td>Result<td>{{task.result}}</td>
+        </table>
+        <div ng-hide="(task.status && taskId) || loading">
+            Task {{taskId}} not found
+        </div>
+        <div ng-show="loading && taskId">
+            Loading task {{taskId}}
+        </div>
+    </div>    
+</div>
