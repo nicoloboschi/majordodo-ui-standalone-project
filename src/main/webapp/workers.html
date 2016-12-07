@@ -13,8 +13,7 @@
     <body>
 
         <div id="wrapper">
-
-            <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+  <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
                 <!--In alto-->
                 <div class="container">
                     <ul class="nav navbar-nav navbar-right">
@@ -59,7 +58,7 @@
                                 <a href="" ng-click="go('/workers')"><i class="fa fa-bar-chart-o fa-fw"></i> Workers</a>
                             </li>
                             <li>
-                                <a href="" ng-click="go('/search/none')"><i class="fa fa-wrench fa-fw"></i>Tasks</span></a>
+                                <a href="" ng-click="go('/search')"><i class="fa fa-wrench fa-fw"></i>Tasks</span></a>
                             </li>
                             <li>
                                 <a href="" ng-click="go('/resources')"><i class="fa fa-edit fa-fw"></i> Resources</a>
@@ -94,7 +93,7 @@
                                             <td class="{{colors[worker.id]}}">{{worker.processId}}</td>
                                             <td class="{{colors[worker.id]}}">{{worker.status}}</td>
                                             <td class="center {{colors[worker.id]}}">  {{worker.location}}</td>
-                                            <td class="center {{colors[worker.id]}}">{{worker.lastConnectionTs| date:"dd/MM/yyyy 'at' h:mma"}}</td>
+                                            <td class="center {{colors[worker.id]}}">{{worker.lastConnectionTs| date:"dd/MM/yyyy 'at' h:mm ' ' a"}}</td>
                                         </tr>
 
                                     </tbody>
