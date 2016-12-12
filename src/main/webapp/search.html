@@ -1,84 +1,15 @@
-<!DOCTYPE html>
 <html lang="en">
-
-    <head>
-
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="">
-        <meta name="author" content="">
-
-        <title>SB Admin 2 - Bootstrap Admin Theme</title>
-
-    </head>
-
     <body>
-
         <div id="wrapper">
-              <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-                <!--In alto-->
-                <div class="container">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="" >Last update : {{ lastupdate | date : "HH:mm:ss"}}</a></li>
-                    </ul>
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <a class="navbar-brand" href="#" ng-click="go('/home')">Majordodo</a>
-                    </div>
-
-                    <div class="navbar-collapse collapse" id="searchbar">
-                        <form class="navbar-form">
-                            <div class="form-group" style="display:inline;">
-                                <div class="input-group" style="display:table;">
-                                    <form >
-                                        <span class="input-group-addon" style="width:1%;"><span class="glyphicon glyphicon-search"></span></span>
-                                        <input ng-keyup="keyPress($event)" ng-model="brokerUrl" class="form-control" name="search" placeholder="Insert url" autocomplete="off" autofocus="autofocus" type="text" >
-                                    </form>
-                                </div>
-                            </div>
-                        </form>
-
-                    </div>
-
-                </div>
-
-                <!--fine in alto-->
-
-                <!--inizio a sinistra-->
-                <div class="navbar-default sidebar" role="navigation">
-                    <div class="sidebar-nav navbar-collapse">
-                        <ul class="nav" id="side-menu">
-
-                            <li>
-                                <a href="" ng-click="go('/home')"><i class="fa fa-dashboard fa-fw"></i> Home</a>
-                            </li>
-                            <li>
-                                <a href="" ng-click="go('/workers')"><i class="fa fa-bar-chart-o fa-fw"></i> Workers</a>
-                            </li>
-                            <li>
-                                <a href="" ng-click="go('/search')"><i class="fa fa-wrench fa-fw"></i>Tasks</span></a>
-                            </li>
-                            <li>
-                                <a href="" ng-click="go('/resources')"><i class="fa fa-edit fa-fw"></i> Resources</a>
-                            </li>
-                    </div>
-                </div>
-            </nav>
-
-
+            <div ng-include="'navigationBar.html'"></div>
             <div id="page-wrapper">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h1 class="page-header">Tasks</h1>
-                    </div>
-                    <!-- /.col-lg-12 -->
+                <br>
+                <div id="warning-alert" class="alert alert-danger">
+                    <h4><strong>Error!</strong> Http's request caused an error. Probably url is not correct.</h4>
                 </div>
-                <!-- /.row -->
+                <div class="col-lg-12">
+                    <h1 class="page-header">Tasks</h1>
+                </div>
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="panel panel-default">
@@ -91,27 +22,27 @@
                                     <div class="form-inline " >
                                         <div  class="col-md-10" >
                                             <div id="searchTaskId" class="col-sm-2" >
-                                                <input class="form-control" name="searchAll" id="searchTaskId-input" placeholder="Search task ID" autocomplete="off" autofocus="autofocus" type="text" ng-keyup="keyPress($event)" onkeyup="toogleClassSuccess('searchtaskId')" ng-model="filterTaskId">
+                                                <input class="form-control"  id="searchTaskId-input" placeholder="Search task ID" autocomplete="off" autofocus="autofocus" type="text" ng-keyup="keyPress($event)" onkeyup="toogleClassSuccess('searchtaskId')"ng-model="filters['searchTaskId']" >
                                             </div>
                                             <div id="searchUserId" class="col-sm-2" >
-                                                <input class="form-control " id="searchUserId-input" name="searchAll" placeholder="Search user ID" autocomplete="off" autofocus="autofocus" type="text" ng-keyup="keyPress($event)" onkeyup="toogleClassSuccess('searchUserId')" >
+                                                <input class="form-control " id="searchUserId-input"  placeholder="Search user ID" autocomplete="off" autofocus="autofocus" type="text" ng-keyup="keyPress($event)" onkeyup="toogleClassSuccess('searchUserId')" ng-model="filters['searchUserId']" >
                                             </div>
                                             <div id="searchTasktype" class="col-sm-2 " >
-                                                <input class="form-control" id="searchTasktype-input" name="searchAll" placeholder="Search task type" autocomplete="off" autofocus="autofocus" type="text" ng-keyup="keyPress($event)" onkeyup="toogleClassSuccess('searchTasktype')" >
+                                                <input class="form-control" id="searchTasktype-input"  placeholder="Search task type" autocomplete="off" autofocus="autofocus" type="text" ng-keyup="keyPress($event)" onkeyup="toogleClassSuccess('searchTasktype')" ng-model="filters['searchTasktype']">
                                             </div>
                                             <div id="searchWorkerId" class="col-sm-2 " >
-                                                <input class="form-control" id="searchWorkerId-input" name="searchAll" placeholder="Search worker ID" autocomplete="off" autofocus="autofocus" type="text" ng-keyup="keyPress($event)" onkeyup="toogleClassSuccess('searchWorkerId')" >
+                                                <input class="form-control" id="searchWorkerId-input"  placeholder="Search worker ID" autocomplete="off" autofocus="autofocus" type="text" ng-keyup="keyPress($event)" onkeyup="toogleClassSuccess('searchWorkerId')" ng-model="filters['searchWorkerId']">
                                             </div>
                                             <div id="searchStatus" class="col-sm-2" >
-                                                <input class="form-control" id="searchStatus-input" name="searchAll" placeholder="Search status" autocomplete="off" autofocus="autofocus" type="text" ng-keyup="keyPress($event)" onkeyup="toogleClassSuccess('searchStatus')" >
+                                                <input class="form-control" id="searchStatus-input"  placeholder="Search status" autocomplete="off" autofocus="autofocus" type="text" ng-keyup="keyPress($event)" onkeyup="toogleClassSuccess('searchStatus')" ng-model="filters['searchStatus']">
                                             </div>
                                             <div id="searchSlot"  class="col-sm-2" >
-                                                <input class="form-control" id="searchSlot-input" name="searchAll" placeholder="Search slot" autocomplete="off" autofocus="autofocus" type="text" ng-keyup="keyPress($event)" onkeyup="toogleClassSuccess('searchSlot')" >
+                                                <input class="form-control" id="searchSlot-input"  placeholder="Search slot" autocomplete="off" autofocus="autofocus" type="text" ng-keyup="keyPress($event)" onkeyup="toogleClassSuccess('searchSlot')" ng-model="filters['searchSlot']">
                                             </div>
                                         </div>
                                         <div  class="col-md-2" >
                                             <div id="searchMax"  class="col-xs-6" >
-                                                <input class="form-control" id="searchMax-input" name="searchAll" placeholder="Max rows" autocomplete="off" autofocus="autofocus" type="text" ng-keyup="keyPress($event)" ng-model="max">
+                                                <input class="form-control" id="searchMax-input"  placeholder="Max rows" autocomplete="off" autofocus="autofocus" type="text" ng-keyup="keyPress($event)" ng-model="max">
                                             </div>
                                             <div id="clear" class="col-xs-6" >
                                                 <button type="button" class="btn btn-info" ng-click="clearFilters()">Clear all filters</button>
@@ -134,12 +65,113 @@
                                     <tbody ng-repeat="task in tasks">
                                         <tr>
                                             <td class="{{colors[task.taskId]}}">
-                                                {{task.taskId}}   
+                                                {{task.taskId}}
                                                 <div class="btn-group btn-group-xs pull-right">
-                                                    <button type="button" class="btn btn-default">Vedi task</button>
+                                                    <button id="{{task.taskId}}" type="button" class="btn btn-default taskdetails" data-toggle="modal" data-target="#myModal">Vedi task</button>
                                                     <button ng-click="searchThis(task.taskId, 'searchTaskId')" type="button" class="btn btn-default">Filtra</button>
                                                 </div>
+                                                <!--popup with task details-->
+                                                <div class="modal fade" id="myModal" role="dialog">
+                                                    <div class="modal-dialog modal-sm">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                                <h4 class="modal-title">Task {{taskdetails.taskId}}</h4>
+                                                            </div>
+                                                            <div class="modal-body">
 
+                                                                <table width="100%" class="table table-striped table-hover table-bordered " >
+                                                                    <tbody >
+                                                                        <tr>
+                                                                            <th>
+                                                                                User ID
+                                                                            </th>
+                                                                            <td>
+                                                                                {{taskdetails.userId}}
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th>
+                                                                                Tasktype
+                                                                            </th>
+                                                                            <td>
+                                                                                {{taskdetails.tasktype}}
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th>
+                                                                                Worker ID
+                                                                            </th>
+                                                                            <td>
+                                                                                {{taskdetails.workerId}}
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th>
+                                                                                Status
+                                                                            </th>
+                                                                            <td>
+                                                                                {{taskdetails.status}}
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th>
+                                                                                Slot
+                                                                            </th>
+                                                                            <td>
+                                                                                {{taskdetails.slot}}
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th>
+                                                                                Attempts
+                                                                            </th>
+                                                                            <td>
+                                                                                {{taskdetails.attempts}}
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th>
+                                                                                Max attempts
+                                                                            </th>
+                                                                            <td>
+                                                                                {{taskdetails.maxattempts}}
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th>
+                                                                                Created
+                                                                            </th>
+                                                                            <td>
+                                                                                {{taskdetails.createdTimestamp| date:"dd/MM/yyyy 'at' h:mm ' ' a"}}
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th>
+                                                                                Deadline
+                                                                            </th>
+                                                                            <td>
+                                                                                {{taskdetails.deadline| date: "dd/MM/yyyy 'at' h:mm ' ' a"}}
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <th>
+                                                                                Result
+                                                                            </th>
+                                                                            <td>
+                                                                                {{taskdetails.result}}
+                                                                            </td>
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--popup with task details-->
                                             </td>
                                             <td class="{{colors[task.taskId]}}">{{task.userId}}
                                                 <div class="btn-group btn-group-xs pull-right">

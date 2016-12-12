@@ -13,67 +13,19 @@
     <body>
 
         <div id="wrapper">
-  <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-                <!--In alto-->
-                <div class="container">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="" >Last update : {{ lastupdate | date : "HH:mm:ss"}}</a></li>
-                    </ul>
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                        <a class="navbar-brand" href="#" ng-click="go('/home')">Majordodo</a>
-                    </div>
-
-                    <div class="navbar-collapse collapse" id="searchbar">
-                        <form class="navbar-form">
-                            <div class="form-group" style="display:inline;">
-                                <div class="input-group" style="display:table;">
-                                    <form >
-                                        <span class="input-group-addon" style="width:1%;"><span class="glyphicon glyphicon-search"></span></span>
-                                        <input ng-keyup="keyPress($event)" ng-model="brokerUrl" class="form-control" name="search" placeholder="Insert url" autocomplete="off" autofocus="autofocus" type="text" >
-                                    </form>
-                                </div>
-                            </div>
-                        </form>
-
-                    </div>
-
-                </div>
-
-                <!--fine in alto-->
-
-                <!--inizio a sinistra-->
-                <div class="navbar-default sidebar" role="navigation">
-                    <div class="sidebar-nav navbar-collapse">
-                        <ul class="nav" id="side-menu">
-
-                            <li>
-                                <a href="" ng-click="go('/home')"><i class="fa fa-dashboard fa-fw"></i> Home</a>
-                            </li>
-                            <li>
-                                <a href="" ng-click="go('/workers')"><i class="fa fa-bar-chart-o fa-fw"></i> Workers</a>
-                            </li>
-                            <li>
-                                <a href="" ng-click="go('/search')"><i class="fa fa-wrench fa-fw"></i>Tasks</span></a>
-                            </li>
-                            <li>
-                                <a href="" ng-click="go('/resources')"><i class="fa fa-edit fa-fw"></i> Resources</a>
-                            </li>
-                    </div>
-                </div>
-            </nav>
-
+            
+        <div ng-include="'navigationBar.html'"></div>
             <div id="page-wrapper">
-
+                 <br>
+                <div id="warning-alert" class="alert alert-danger" >
+                    <h4><strong>Error!</strong> Http's request caused an error. Probably url is not correct.</h4>
+                </div>
+                <h1 class="page-header">Workers</h1>
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="panel panel-default">
                             <div class="panel-heading">
-                                Workers
+                                {{workers.length}} results
                             </div>
                             <!-- /.panel-heading -->
                             <div class="panel-body">

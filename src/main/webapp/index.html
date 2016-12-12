@@ -1,12 +1,15 @@
-<html ng-app="MajordodoWebUI">
+<html ng-app="majordodo-web-ui-module">
     <head>
- 
+
         <!--Angular-->
         <script type='text/javascript' src='angular/angular.js'></script>
         <script type='text/javascript' src='angular/angular-route.js'></script>
-        <script type='text/javascript' src='majordodo.app.js'></script>
+        <script type='text/javascript' src='resources.controller.js'></script>
+        <script type='text/javascript' src='workers.controller.js'></script>
+        <script type='text/javascript' src='search.controller.js'></script>
+        <script type='text/javascript' src='home.controller.js'></script>
+        <script type='text/javascript' src='angular.configuration.js'></script>
 
-        <!--CSS-->
         <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <link href="vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
         <link href="dist/css/sb-admin-2.css" rel="stylesheet">
@@ -17,12 +20,6 @@
         <script src="vendor/jquery/jquery.min.js"></script>
         <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
         <script src="vendor/metisMenu/metisMenu.min.js"></script>
-        <script src="vendor/flot/excanvas.min.js"></script>
-        <script src="vendor/flot/jquery.flot.js"></script>
-        <script src="vendor/flot/jquery.flot.pie.js"></script>
-        <script src="vendor/flot/jquery.flot.resize.js"></script>
-        <script src="vendor/flot/jquery.flot.time.js"></script>
-        <script src="vendor/flot-tooltip/jquery.flot.tooltip.min.js"></script>
         <script src="vendor/raphael/raphael.min.js"></script>
 
         <title>Majordodo</title>
@@ -32,8 +29,6 @@
     </head>
     <body>
         <div ng-view=""></div>
-
-
     </body>
 
 </html>
