@@ -31,7 +31,7 @@ function searchController($scope, $http, $route, $timeout, $location, $state) {
 
     $scope.clearFilters = function () {
         for (var i = 0; i < allSearchFilter.length; i++) {
-            filters = [];
+            $scope.filters[allSearchFilter[i]] = "";
             toogleClassSuccess(allSearchFilter[i]);
         }
         $scope.reloadData();
@@ -45,13 +45,12 @@ function searchController($scope, $http, $route, $timeout, $location, $state) {
         }
         
         $state.brokerUrl = $scope.brokerUrl;
-//        for (var i = 0, max = allSearchFilter.length; i < max; i++) {
-//            var $valore = $('#' + allSearchFilter[i] + "-input").val();
-//            $scope.filters[allSearchFilter[i]] = $valore;
-//        }
 
         if (String(~~Number($scope.max)) !== $scope.max) {
             $scope.max = '150';
+        }
+        if ($scope.max > 300) {
+            $scope.max = 300;
         }
         var theUrl = '';
         if ($scope.filters['searchTaskId']) {
@@ -164,7 +163,7 @@ function toogleClassSuccess(id) {
     var $el = $('#' + id);
     var value = $('#' + id + "-input").val();
     var classe = $el.attr('class');
-    if (value.length == 0) {
+    if (value.length === 0) {
         $el.attr('class', classe.replace("has-success", ""));
     } else {
         if (!classe.includes('has-success')) {

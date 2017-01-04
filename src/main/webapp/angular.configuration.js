@@ -1,4 +1,4 @@
-var modulo = angular.module('majordodo-web-ui-module', ['ngRoute']);
+var modulo = angular.module('majordodo-web-ui-module', ['ngRoute', 'nvd3']);
 
 modulo.factory('$state', function () {
     var state = {};

@@ -121,7 +121,6 @@
                         <div class="panel panel-red">
                             <div class="panel-heading">
                                 <div class="row">
-
                                     <div class="col-xs-9 ">
                                         <div class="huge">{{status.errorTasks}}</div>
                                         <div>Error Tasks</div>
@@ -132,15 +131,14 @@
                     </div>
 
                 </div>
+
                 <div class="row">
-                    <div class="progress">
-                        <div class="progress-bar progress-bar-info  bar-font" role="progressbar" style="width:{{finished}}%">
+                    <div >
+                        <div class="col-xs-6">
+                            <nvd3 options="optionsStatus" data="dataStatus"></nvd3>            
                         </div>
-                        <div class="progress-bar progress-bar-success bar-font" role="progressbar" style="width:{{running}}%">
-                        </div>
-                        <div class="progress-bar progress-bar-warning bar-font" role="progressbar" style="width:{{waiting}}%">
-                        </div>
-                        <div class="progress-bar progress-bar-danger active bar-font" role="progressbar" style="width:{{error}}%">
+                        <div class="col-xs-6">
+                            <nvd3 options="optionsTasks" data="dataTasks"></nvd3>            
                         </div>
                     </div>
                 </div>

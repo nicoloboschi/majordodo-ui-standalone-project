@@ -67,8 +67,8 @@
                                             <td class="{{colors[task.taskId]}}">
                                                 {{task.taskId}}
                                                 <div class="btn-group btn-group-xs pull-right">
-                                                    <button id="{{task.taskId}}" type="button" class="btn btn-default taskdetails" data-toggle="modal" data-target="#myModal">Vedi task</button>
-                                                    <button ng-click="searchThis(task.taskId, 'searchTaskId')" type="button" class="btn btn-default">Filtra</button>
+                                                    <button id="{{task.taskId}}" type="button" class="btn btn-default taskdetails" data-toggle="modal" data-target="#myModal">Show task</button>
+                                                    <button ng-click="searchThis(task.taskId, 'searchTaskId')" type="button" class="btn btn-default">Filter</button>
                                                 </div>
                                                 <!--popup with task details-->
                                                 <div class="modal fade" id="myModal" role="dialog">
@@ -175,27 +175,26 @@
                                             </td>
                                             <td class="{{colors[task.taskId]}}">{{task.userId}}
                                                 <div class="btn-group btn-group-xs pull-right">
-                                                    <button ng-click="searchThis(task.userId, 'searchUserId')" type="button" class="btn btn-default">Filtra</button>
+                                                    <button ng-click="searchThis(task.userId, 'searchUserId')" type="button" class="btn btn-default">Filter</button>
                                                 </div>
                                             </td>
                                             <td class="{{colors[task.taskId]}}">{{task.tasktype}}
                                                 <div class="btn-group btn-group-xs pull-right">
-                                                    <button ng-click="searchThis(task.tasktype, 'searchTasktype')" type="button" class="btn btn-default">Filtra</button>
+                                                    <button ng-click="searchThis(task.tasktype, 'searchTasktype')" type="button" class="btn btn-default">Filter</button>
                                                 </div></td>
                                             <td class="{{colors[task.taskId]}}">
                                                 {{task.workerId}}
                                                 <div class="btn-group btn-group-xs pull-right">
-                                                    <button type="button" class="btn btn-default">Vedi worker</button>
-                                                    <button ng-click="searchThis(task.workerId, 'searchWorkerId')" type="button" class="btn btn-default">Filtra</button>
+                                                    <button ng-click="searchThis(task.workerId, 'searchWorkerId')" type="button" class="btn btn-default">Filter</button>
                                                 </div>
                                             </td>
                                             <td class="{{colors[task.taskId]}}">{{task.status}}
                                                 <div class="btn-group btn-group-xs pull-right">
-                                                    <button ng-click="searchThis(task.status, 'searchStatus')" type="button" class="btn btn-default">Filtra</button>
+                                                    <button ng-click="searchThis(task.status, 'searchStatus')" type="button" class="btn btn-default">Filter</button>
                                                 </div></td>
                                             <td class="{{colors[task.taskId]}}">{{task.slot}}
                                                 <div class="btn-group btn-group-xs pull-right">
-                                                    <button ng-click="searchThis(task.slot, 'searchSlot')" type="button" class="btn btn-default">Filtra</button>
+                                                    <button ng-click="searchThis(task.slot, 'searchSlot')" type="button" class="btn btn-default">Filter</button>
                                                 </div>
                                             </td>
                                         </tr>
