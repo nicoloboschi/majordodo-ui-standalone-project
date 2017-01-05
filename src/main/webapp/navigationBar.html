@@ -16,10 +16,10 @@
             <form class="navbar-form">
                 <div class="form-group" style="display:inline;">
                     <div class="input-group" style="display:table;">
-                        <form >
-                            <span class="input-group-addon" style="width:1%;"><span class="glyphicon glyphicon-search"></span></span>
-                            <input ng-keyup="keyPress($event)" ng-model="$parent.brokerUrl" class="form-control" name="search" placeholder="Insert url" autocomplete="off" autofocus="autofocus" type="text" >
-                        </form>
+                        <input ng-keyup="keyPress($event)" ng-model="$parent.brokerUrl" class="form-control" name="search" placeholder="Insert url" autocomplete="off" autofocus="autofocus" type="text" >
+                        <span class="input-group-addon" style="width:1%;"><a href="" ng-click="reloadData()" class="icon">
+                                <span class="glyphicon glyphicon-refresh"></span>
+                            </a></span>
                     </div>
                 </div>
             </form>
@@ -34,20 +34,20 @@
         <div class="sidebar-nav navbar-collapse">
             <ul class="nav" id="side-menu">
 
-                <li>
+                <li id="li-home">
                     <a href="" ng-click="go('/home')"><i class="fa fa-dashboard fa-fw"></i> Home</a>
                 </li>
-                <li>
+                <li id="li-workers">
                     <a href="" ng-click="go('/workers')"><i class="fa fa-bar-chart-o fa-fw"></i> Workers</a>
                 </li>
-                <li style="background-color:#00ff00;">
+                <li id="li-search">
                     <a href="" ng-click="go('/search')"><i class="fa fa-wrench fa-fw"></i>Tasks</span></a>
                 </li>
-                <li>
+                <li id="li-resources">
                     <a href="" ng-click="go('/resources')"><i class="fa fa-edit fa-fw"></i> Resources</a>
                 </li>
         </div>
     </div>
-    
+
     <!--fine sinistra-->
 </nav>

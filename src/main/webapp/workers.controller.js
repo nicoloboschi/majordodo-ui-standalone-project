@@ -65,5 +65,6 @@ function workersController($scope, $http, $route, $timeout, $location, $state) {
     }
      $(document).ready(function () {
         $('#warning-alert').hide();
+        $('#li-workers').attr("style", "background-color: #E0E0E0;");
     });
 }

@@ -104,9 +104,14 @@ function homeController($scope, $http, $route, $timeout, $location, $state) {
     if ($scope.brokerUrl) {
         $timeout($scope.reloadData(), 1000);
     }
-
+    $scope.i = 0;
     $(document).ready(function () {
+        if ($scope.i === 0) {
+            $scope.reloadData();
+            $scope.i++;
+        }
         $('#warning-alert').hide();
+        $('#li-home').attr("style", "background-color: #E0E0E0;");
     });
 }
 
@@ -127,7 +132,7 @@ function getTasksOptions() {
             y: function (d) {
                 return d.value;
             },
-            showXAxis:false,
+            showXAxis: false,
             showValues: true,
             valueFormat: function (d) {
                 return d;

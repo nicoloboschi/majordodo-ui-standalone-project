@@ -185,7 +185,7 @@
                                             <td class="{{colors[task.taskId]}}">
                                                 {{task.workerId}}
                                                 <div class="btn-group btn-group-xs pull-right">
-                                                    <button ng-click="searchThis(task.workerId, 'searchWorkerId')" type="button" class="btn btn-default">Filter</button>
+                                                    <button ng-hide="!task.workerId" ng-click="searchThis(task.workerId, 'searchWorkerId')" type="button" class="btn btn-default">Filter</button>
                                                 </div>
                                             </td>
                                             <td class="{{colors[task.taskId]}}">{{task.status}}

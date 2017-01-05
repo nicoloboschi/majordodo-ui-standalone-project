@@ -54,7 +54,7 @@ function resourcesController($scope, $http, $route, $timeout, $location, $state)
     }
     $(document).ready(function () {
         $('#warning-alert').hide();
-        $('#dataTables').DataTable();
+        $('#li-resources').attr("style", "background-color: #E0E0E0;");
     });
 }
 
