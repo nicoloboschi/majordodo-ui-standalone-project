@@ -154,7 +154,8 @@ function searchController($scope, $http, $route, $timeout, $location, $state) {
     });
     $(document).ready(function () {
         $('#warning-alert').hide();
-        $('#li-search').attr("style", "background-color: #E0E0E0;");
+        $('li').attr("class", "");
+        $('#li-search').attr("class", "active");
     });
 
 }

@@ -95,10 +95,10 @@ function homeController($scope, $http, $route, $timeout, $location, $state) {
                     }
                 }).
                 error(function (data, status, headers, config) {
+                    $('#warning-alert').hide();
+                    $('#warning-alert').attr("class", "alert alert-danger");
                     $('#warning-alert').fadeIn(500);
                 });
-
-
     };
 
     if ($scope.brokerUrl) {
@@ -110,8 +110,9 @@ function homeController($scope, $http, $route, $timeout, $location, $state) {
             $scope.reloadData();
             $scope.i++;
         }
-        $('#warning-alert').hide();
-        $('#li-home').attr("style", "background-color: #E0E0E0;");
+
+        $('li').attr("class", "");
+        $('#li-home').attr("class", "active");
     });
 }
 

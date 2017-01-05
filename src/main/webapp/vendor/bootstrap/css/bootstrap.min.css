@@ -1122,6 +1122,9 @@ img {
     max-width: 100%;
     height: auto
 }
+.majordodo {
+    color: #09A07C;
+}
 .img-rounded {
     border-radius: 6px
 }
@@ -4365,8 +4368,14 @@ textarea.input-group-sm>.input-group-btn>.btn {
     float: left;
     height: 50px;
     padding: 15px 15px;
-    font-size: 18px;
+    font-size: 25px;
     line-height: 20px
+}
+.refresh-span {
+    background: black;
+    cursor: pointer; 
+    width: 1%;
+    border: none;
 }
 .navbar-brand:focus,
 .navbar-brand:hover {
@@ -4682,8 +4691,9 @@ fieldset[disabled] .navbar-default .btn-link:hover {
     background-color: #222;
     border-color: #080808
 }
-.navbar-inverse .navbar-brand {
-    color: #9d9d9d
+
+.navbar-inverse .navbar-brand{
+    color: #09A07C;
 }
 .navbar-inverse .navbar-brand:focus,
 .navbar-inverse .navbar-brand:hover {
@@ -5181,7 +5191,10 @@ a.thumbnail:hover {
 .alert-danger {
     color: #a94442;
     background-color: #f2dede;
-    border-color: #ebccd1
+    border-color: #ebccd1;
+}
+.alert-danger hidden{
+    visibility: hidden
 }
 .alert-danger hr {
     border-top-color: #e4b9c0
