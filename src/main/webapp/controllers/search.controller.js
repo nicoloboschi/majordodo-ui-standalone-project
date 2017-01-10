@@ -63,11 +63,6 @@ function searchController($scope, $http, $route, $timeout, $location, $state, Gl
     }
 
     $scope.reloadSearch = function () {
-        if (GlobalFunctions.devmode) {
-            if (!$scope.brokerUrl) {
-                $scope.brokerUrl = GlobalFunctions.devurl;
-            }
-        }
 
         $state.brokerUrl = $scope.brokerUrl;
 
@@ -127,12 +122,6 @@ function searchController($scope, $http, $route, $timeout, $location, $state, Gl
     };
 
     $scope.reloadHeap = function () {
-        if (GlobalFunctions.devmode) {
-            if (!$scope.brokerUrl) {
-                $scope.brokerUrl = GlobalFunctions.devurl;
-            }
-        }
-
         $state.brokerUrl = $scope.brokerUrl;
 
 
@@ -183,11 +172,6 @@ function searchController($scope, $http, $route, $timeout, $location, $state, Gl
 
     };
     $scope.reloadSlots = function () {
-        if (GlobalFunctions.devmode) {
-            if (!$scope.brokerUrl) {
-                $scope.brokerUrl = GlobalFunctions.devurl;
-            }
-        }
         $state.brokerUrl = $scope.brokerUrl;
 
         $http.get($state.brokerUrl + "&view=slots").

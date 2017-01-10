@@ -19,10 +19,9 @@ function resourcesController($scope, $http, $route, $timeout, $location, $state,
     }
 
     $scope.reloadData = function () {
-        if (GlobalFunctions.devmode) {
-            if (!$scope.brokerUrl) {
-                $scope.brokerUrl = GlobalFunctions.devurl;
-            }
+        console.log($scope.brokerUrl);
+        if ($scope.brokerUrl.indexOf("?") === -1) {
+            $scope.brokerUrl = $scope.brokerUrl + "?";
         }
         $state.brokerUrl = $scope.brokerUrl;
 

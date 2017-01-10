@@ -127,11 +127,6 @@ function workersController($scope, $http, $route, $timeout, $location, $state, G
     }
 
     $scope.reloadData = function () {
-        if (GlobalFunctions.devmode) {
-            if (!$scope.brokerUrl) {
-                $scope.brokerUrl = GlobalFunctions.devurl;
-            }
-        }
         $state.brokerUrl = $scope.brokerUrl;
 
         $http.get($scope.brokerUrl).

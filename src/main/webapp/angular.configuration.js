@@ -8,9 +8,6 @@ modulo.factory('$state', function () {
 
 modulo.factory('GlobalFunctions', function () {
     return {
-        
-        devmode: false,
-        devurl: "",
         getDiscreteBarChartOptions: function (title, height, xLabel) {
             
             return {
